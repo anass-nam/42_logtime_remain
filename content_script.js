@@ -13,7 +13,7 @@ async function calc(m){
 
 let		targ = document.querySelector('.user-poste-status');
 targ.style.cursor = 'pointer';
-targ.addEventListener('click', () => {
+document.addEventListener('click', () => {
 	if (targ.innerHTML == "Available")
 		calc(new Date().getMonth());
 	else
