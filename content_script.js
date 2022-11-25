@@ -8,7 +8,7 @@ async function calc(m){
 		total += +e.split(':')[0] * 3600 + +e.split(':')[1] * 60 + +e.split(':')[2];
 	});
 	total = (120 - (total / 3600)).toFixed();
-	targ.innerHTML = (total < 0 ? `+${-total}hours`: `${total}h Remaining`);
+	targ.innerHTML = (total < 0 ? `+${new Date((total * -1) * 1000).toISOString().substring(11, 16)}hours`: `${new Date(total).toISOString().substring(11, 16)}h Remaining`);
 }
 
 let		targ = document.querySelector('.user-poste-status');
