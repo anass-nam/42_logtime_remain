@@ -1,5 +1,5 @@
 async function calc(m){
-	const	response = await fetch('https://profile.intra.42.fr/users/anammal/locations_stats');
+	const	response = await fetch(""); // <Inspect the LOGTIME, cp paste the data-url to fetch>
 	const	json = await response.json();
 	let		dates = Object.keys(json).filter(d => new Date(d).getMonth() == m);
 	let		hours = dates.map(d => json[d]);
