@@ -1,5 +1,5 @@
 async function calc(m){
-	const	response = await fetch(""); // <Inspect the LOGTIME, cp paste the data-url to fetch>
+	const	response = await fetch("https://profile.intra.42.fr/users/<YOUR_INTRA_LOGIN>/locations_stats");
 	const	json = await response.json();
 	let		dates = Object.keys(json).filter(d => new Date(d).getMonth() == m);
 	let		hours = dates.map(d => json[d]);
@@ -7,8 +7,7 @@ async function calc(m){
 	hours.forEach(e => {
 		total += +e.split(':')[0] * 3600 + +e.split(':')[1] * 60 + +e.split(':')[2];
 	});
-	total = (120 - (total / 3600)).toFixed();
-	targ.innerHTML = (total < 0 ? `+${new Date((total * -1) * 1000).toISOString().substring(11, 16)}hours`: `${new Date(total).toISOString().substring(11, 16)}h Remaining`);
+	targ.innerHTML = (`${new Date((total) * 1000).toISOString().substring(11, 16)} hours`);
 }
 
 let		targ = document.querySelector('.user-poste-status');
