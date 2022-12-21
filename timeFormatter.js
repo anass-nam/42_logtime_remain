@@ -1,17 +1,17 @@
-module.expoort = {
-	timeFormatter(sec){
+
+	function timeFormatter(sec) {
 		let time = {
-		hours: 0,
-		minutes: 0,
-		seconds: 0,
+			hours: 0,
+			minutes: 0,
+			seconds: 0,
 		};
 		while (sec >= 3600) {
-		time.hours++;
-		sec -= 3600;
+			time.hours++;
+			sec -= 3600;
 		}
 		while (sec >= 60) {
-		time.minutes++;
-		sec -= 60;
+			time.minutes++;
+			sec -= 60;
 		}
 		time.seconds = sec;
 		Object.keys(time).forEach(keyElm => {
@@ -19,4 +19,4 @@ module.expoort = {
 		});
 		return Object.values(time).join(':');
 	}
-}
+

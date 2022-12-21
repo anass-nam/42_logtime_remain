@@ -19,17 +19,14 @@ const fetchData = async () => {
 	try {
 	  const htmlResponse = await fetch(chrome.runtime.getURL('./toolbar.html'));
 	  const html = await htmlResponse.text();
-	  document.body.insertAdjacentHTML('beforestart', html);
+	  document.body.insertAdjacentHTML('afterend', html);
 	} catch (error) {
 	  console.error(error);
 	}
   };
-  const updateTime = async () => {
+  async function updateTime(){
 	const output = await fetchData();
-	// Do something with the output value here, such as updating an element on the page
 	insertHTML();
   };
-  
-  // Update the time every second
-  setInterval(updateTime, 1000);
+  setInterval(updateTime(), 1000);
   
