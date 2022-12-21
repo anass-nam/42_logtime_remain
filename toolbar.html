@@ -1,0 +1,73 @@
+<div id="toolbar">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<ul id="slide-out" class="sidenav">
+	  <li><div class="user-view">
+		<div class="background">
+		  <img src="./42.svg">
+		</div>
+		<a href="#user"><img class="circle" src=""></a>
+		<a href="#name"><span class="white-text name">John Doe</span></a>
+		<a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+	  </div></li>
+	  <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+	  <li><a href="#!">Second Link</a></li>
+	  <li><div class="divider"></div></li>
+	  <li><a class="subheader">Subheader</a></li>
+	  <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+	</ul>
+	<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+<div class="fixed-action-btn">
+	<a class="waves-effect btn-floating btn-large waves-light red pulse accent-3">
+	  <i class="waves-effect large material-icons waves-light">
+		<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="65" height="65" viewBox="0 0 2048.000000 2048.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(-200.000000,2024.000000) scale(0.100000,-0.100000)"
+fill="#fff" stroke="none">
+<path d="M4202 13777 l-3522 -3522 0 -1423 0 -1422 3520 0 3520 0 2 -1762 3
+-1763 1758 -3 1757 -2 0 3190 0 3190 -3517 0 -3518 0 2310 2313 c1271 1271
+2852 2855 3515 3520 l1205 1207 -1755 0 -1755 0 -3523 -3523z"/>
+<path d="M12760 15543 l0 -1758 911 910 c500 501 1289 1291 1751 1758 l840
+847 -1751 0 -1751 0 0 -1757z"/>
+<path d="M16270 15537 l0 -1762 -1755 -1755 -1755 -1755 0 -1762 0 -1763 1755
+0 1755 0 0 1758 0 1758 1765 1764 1765 1764 0 1758 0 1758 -1765 0 -1765 0 0
+-1763z"/>
+<path d="M18033 8501 c-964 -962 -1753 -1751 -1753 -1755 0 -3 791 -5 1758 -4
+l1757 3 3 1753 c1 963 -1 1752 -5 1751 -5 0 -797 -787 -1760 -1748z"/>
+</g>
+</svg>
+	  </i>
+	</a>
+	<ul>
+	  <li><a href="#" data-target="slide-out" class="sidenav-trigger waves-effect btn-floating orange waves-light"><i class="material-icons">dialpad</i></a></li>
+	  <li><a href="#" data-target="slide-out" class="sidenav-trigger waves-effect btn-floating waves-light yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+	  <li><a href="#" data-target="slide-out" class="sidenav-trigger waves-effect btn-floating waves-light green"><i class="material-icons">assignment_late</i></a></li>
+	  <li><a href="#" data-target="slide-out" class="sidenav-trigger waves-effect btn-floating waves-light blue"><i class="material-icons">access_time</i></a></li>
+	</ul>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+	
+	document.addEventListener('DOMContentLoaded', function() {
+		var elems = document.querySelectorAll('.sidenav');
+		var instances = M.Sidenav.init(elems, {
+			edge: 'left',
+			preventScrolling: true
+		});
+  	});
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var elems = document.querySelectorAll('.fixed-action-btn');
+		var instances = M.FloatingActionButton.init(elems, {
+				direction: 'left',
+				hoverEnabled: false
+		});
+		document.querySelector('img').src = document.querySelector('.user-profile-picture').style.backgroundImage.substr(5,74);
+	});
+  </script>
+</div>

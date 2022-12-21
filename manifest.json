@@ -1,7 +1,7 @@
 {
 	"manifest_version" : 3,
 	"name" : "42_logtime_remain",
-	"version" : "1.0",
+	"version" : "1.01",
 	"icons" : {
 		"16" : "ext_icons/icon16.png",
 		"32" : "ext_icons/icon32.png",
