@@ -1,4 +1,4 @@
-# 42_logtime_remain
+# 42_logtime
 Count how many hours you've been logged in during your current session this month.
 <br>
 <br>
