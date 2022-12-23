@@ -5,40 +5,37 @@
 		}
 		#time{
 			position: fixed;
-			top: 93.5%;
-			left: 49.9%;
+			border-radius: 1%;
+			box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+			top: 94%;
+			left: 50.2%;
 			font-size: 2em;
 			font-weight: bolder;
-			color: #00babc;
+			color: #fff;
 			z-index: 201;
-		}
-		.floating-menu {
-			
-			z-index: 200;
-			position: fixed;
-			top: 91%;
-			left: 50%;
-			transform: translate(-50,50);
-			border-radius: 50%;
-			border-top: 5px solid #00babc;
-			width: 120px;
-			height: 120px;
-			-webkit-animation: spin 1s linear infinite; /* Safari */
-			animation: spin 1s linear infinite;
-			}
-		/* Safari */
-		@-webkit-keyframes spin {
-		0% { -webkit-transform: rotate(0deg); }
-		100% { -webkit-transform: rotate(360deg); }
-		}
+			background: rgba(51, 217, 178, 1);
+			box-shadow: 0 0 0 0 rgba(51, 217, 178, 1);
+			cursor: move;
+			animation: pulse-green 2s infinite;
+}
 
+@keyframes pulse-green {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(51, 217, 178, 0.7);
+	}
 	
-		@keyframes spinr {
-		0% { transform: rotate(0deg); }
-		100% { transform: rotate(360deg); }
-		}
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(51, 217, 178, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
+	}
+}
 
-		
 		`;
 	const styleElement = document.createElement('style');
 	styleElement.innerHTML = css;
@@ -56,7 +53,7 @@
 
 const updateTime = async () => {
 	try {
-		const response = await fetch("https://profile.intra.42.fr/users/<YPUR_LOGIN>/locations_stats");
+		const response = await fetch("https://profile.intra.42.fr/users/anammal/locations_stats");
 		const data = await response.json();
 		const currentMonth = new Date().getMonth();
 		const filteredHours = Object.keys(data)
@@ -85,3 +82,45 @@ const updateTime = async () => {
 	format(d) {return Object.values(this).join(d)}
   }
   
+  dragElement(document.getElementById("time"));
+
+function dragElement(elmnt) {
+  let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
