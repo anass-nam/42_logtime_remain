@@ -56,7 +56,7 @@
 
 const updateTime = async () => {
 	try {
-		const response = await fetch("https://profile.intra.42.fr/users/anammal/locations_stats");
+		const response = await fetch("https://profile.intra.42.fr/users/<YPUR_LOGIN>/locations_stats");
 		const data = await response.json();
 		const currentMonth = new Date().getMonth();
 		const filteredHours = Object.keys(data)
