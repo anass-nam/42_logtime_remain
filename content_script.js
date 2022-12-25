@@ -1,14 +1,17 @@
 (() => {
-
-	let newMain = document.createElement("main")
-	let nav = document.createElement("nav")
-	let div = document.createElement("div")
-	div.id = 'time'
-	nav.className = "floating-menu"
-	newMain.append(nav)
-	newMain.append(div)
-	document.body.append(newMain)
-})();
+	let clone = document.querySelector('.pull-right.button-actions.margin-right-42').childNodes[1].cloneNode(true);
+	document.querySelector('.pull-right.button-actions.margin-right-42').append(clone);
+	let t = clone.firstChild.className.split(' ').map(e => e == 'iconf-globe' ? 'iconf-timer' : e).join(' ');
+	document.querySelector('.pull-right.button-actions.margin-right-42').childNodes[1].firstChild.className = t;
+	let newMain = document.createElement("main");
+	let nav = document.createElement("nav");
+	let div = document.createElement("div");
+	div.id = 'time';
+	nav.className = "floating-menu";
+	newMain.append(nav);
+	newMain.append(div);
+	document.body.append(newMain);
+})();;
 		
 
 const updateTime = async () => {

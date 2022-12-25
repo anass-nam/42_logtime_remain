@@ -1,6 +1,9 @@
 main {
 	margin-bottom: 200%;
 }
+.iconf-timer:before {
+	content: "\e285";
+}
 #time{
 	position: fixed;
 	border-radius: 1%;
