@@ -1,45 +1,5 @@
 (() => {
-	const css = `
-		main {
-			margin-bottom: 200%;
-		}
-		#time{
-			position: fixed;
-			border-radius: 1%;
-			box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
-			top: 94%;
-			left: 50.2%;
-			font-size: 2em;
-			font-weight: bolder;
-			color: #fff;
-			z-index: 201;
-			background: rgba(51, 217, 178, 1);
-			box-shadow: 0 0 0 0 rgba(51, 217, 178, 1);
-			cursor: move;
-			animation: pulse-green 2s infinite;
-}
 
-@keyframes pulse-green {
-	0% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(51, 217, 178, 0.7);
-	}
-	
-	70% {
-		transform: scale(1);
-		box-shadow: 0 0 0 10px rgba(51, 217, 178, 0);
-	}
-	
-	100% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
-	}
-}
-
-		`;
-	const styleElement = document.createElement('style');
-	styleElement.innerHTML = css;
-	document.head.appendChild(styleElement);
 	let newMain = document.createElement("main")
 	let nav = document.createElement("nav")
 	let div = document.createElement("div")
@@ -53,7 +13,7 @@
 
 const updateTime = async () => {
 	try {
-		const response = await fetch("https://profile.intra.42.fr/users/<YOUR-LOGGIN>/locations_stats");
+		const response = await fetch("https://profile.intra.42.fr/users/anammal/locations_stats");
 		const data = await response.json();
 		const currentMonth = new Date().getMonth();
 		const filteredHours = Object.keys(data)
