@@ -1,8 +1,15 @@
+
 (() => {
 	let clone = document.querySelector('.pull-right.button-actions.margin-right-42').childNodes[1].cloneNode(true);
 	document.querySelector('.pull-right.button-actions.margin-right-42').append(clone);
 	let t = clone.firstChild.className.split(' ').map(e => e == 'iconf-globe' ? 'iconf-timer' : e).join(' ');
-	document.querySelector('.pull-right.button-actions.margin-right-42').childNodes[1].firstChild.className = t;
+	document.querySelector('.pull-right.button-actions.margin-right-42').childNodes[3].firstChild.className = t;
+	document.querySelector('.pull-right.button-actions.margin-right-42').childNodes[3].removeAttribute("href");
+	document.querySelector('.pull-right.button-actions.margin-right-42').childNodes[3].setAttribute("case", "none");
+	document.querySelector('.pull-right.button-actions.margin-right-42').childNodes[3].addEventListener('click', (e) => {
+		document.querySelector('#time').style.display = e.target.parentNode.getAttribute("case") == 'none' ? 'block' : 'none';
+		e.target.parentNode.setAttribute("case", e.target.parentNode.getAttribute("case") == 'none' ? 'block' : 'none');
+	})
 	let newMain = document.createElement("main");
 	let nav = document.createElement("nav");
 	let div = document.createElement("div");
@@ -13,10 +20,10 @@
 	document.body.append(newMain);
 })();;
 		
-
 const updateTime = async () => {
 	try {
-		const response = await fetch("https://profile.intra.42.fr/users/anammal/locations_stats");
+		const login = document.querySelector('[data-login]').getAttribute('data-login');
+		const response = await fetch(`https://profile.intra.42.fr/users/${login}/locations_stats`);
 		const data = await response.json();
 		const currentMonth = new Date().getMonth();
 		const filteredHours = Object.keys(data)
@@ -28,7 +35,7 @@ const updateTime = async () => {
 			sec += hours * 3600 + minutes * 60 + seconds;
 		});
 		const time = new Time(sec).format(":");
-		document.querySelector('#time').innerHTML = time+'</a>'
+		document.querySelector('#time').innerHTML = `<a>${time}</a>`
 	} catch (error) {
 		console.error(error);
 	}
@@ -87,3 +94,4 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+
