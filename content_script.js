@@ -35,7 +35,7 @@ const updateTime = async () => {
 			sec += hours * 3600 + minutes * 60 + seconds;
 		});
 		const time = new Time(sec).format(":");
-		document.querySelector('#time').innerHTML = `<a>${time}</a>`
+		document.querySelector('#time').innerHTML = time
 	} catch (error) {
 		console.error(error);
 	}

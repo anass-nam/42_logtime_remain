@@ -14,7 +14,7 @@ main {
 	font-size: 2em;
 	font-weight: bolder;
 	color: #fff;
-	z-index: 201;
+	z-index: 999;
 	background: rgba(51, 217, 178, 1);
 	box-shadow: 0 0 0 0 rgba(51, 217, 178, 1);
 	cursor: move;
