@@ -1,7 +1,7 @@
 {
 	"manifest_version" : 3,
 	"name" : "42_logtime",
-	"version" : "1.2",
+	"version" : "2.0.1",
 	"icons" : {
 		"16" : "ext_icons/icon16.png",
 		"32" : "ext_icons/icon32.png",
@@ -12,7 +12,7 @@
 		{
 			"matches": ["https://profile.intra.42.fr/"],
 			"js": ["content_script.js"],
-			"css": ["css.css"]
+			"css": ["content_style.css"]
 		}
 	]
 }
