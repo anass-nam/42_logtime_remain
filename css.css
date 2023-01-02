@@ -5,9 +5,9 @@ main {
 	content: "\e285";
 }
 #time{
-	display: none;
 	position: fixed;
-	border-radius: 1%;
+	padding: 0 5px;
+	border-radius: 5px;
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
 	top: 94%;
 	left: 50.2%;
@@ -22,18 +22,18 @@ main {
 }
 
 @keyframes pulse-green {
-0% {
-transform: scale(0.95);
-box-shadow: 0 0 0 0 rgba(51, 217, 178, 0.7);
-}
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(51, 217, 178, 0.7);
+	}
 
-70% {
-transform: scale(1);
-box-shadow: 0 0 0 10px rgba(51, 217, 178, 0);
-}
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(51, 217, 178, 0);
+	}
 
-100% {
-transform: scale(0.95);
-box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
-}
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
+	}
 }
